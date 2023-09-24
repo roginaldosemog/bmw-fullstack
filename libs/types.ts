@@ -4,3 +4,11 @@ export type Car = {
   model: string
   year: number
 }
+
+export type Order = {
+  _id: string
+  car: string
+  user: string
+  createdAt: string
+  updatedAt: string
+}
