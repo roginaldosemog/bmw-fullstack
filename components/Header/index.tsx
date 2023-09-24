@@ -12,7 +12,10 @@ export default function Header() {
       <Image className="h-8 w-auto" src={logo} alt="Project logo" />
       <nav className="flex items-center gap-x-4">
         <Link className="text-sm font-bold" href={'/'}>
-          Home
+          Cars
+        </Link>
+        <Link className="text-sm font-bold" href={'/orders'}>
+          Orders
         </Link>
       </nav>
     </header>
