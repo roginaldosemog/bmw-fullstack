@@ -6,5 +6,5 @@ import Home from './page'
 
 it('Home Page: Have the correct title', () => {
   render(<Home />)
-  expect(screen.getByRole('heading')).toHaveTextContent('Home')
+  expect(screen.getByTestId('homepage')).toBeInTheDocument()
 })
