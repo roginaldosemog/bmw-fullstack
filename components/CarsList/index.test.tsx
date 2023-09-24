@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react'
-import CarsList from './CarsList'
+import CarsList from '@/components/CarsList'
 
 it('Header: renders', () => {
   render(<CarsList />)

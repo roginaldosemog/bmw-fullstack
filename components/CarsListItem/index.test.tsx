@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react'
-import CarsListItem from './CarsListItem'
+import CarsListItem from '@/components/CarsListItem'
 
 const fakeCarData = {
   id: 0,
