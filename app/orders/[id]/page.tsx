@@ -1,5 +1,4 @@
 const getOrderDetails = async (id: string) => {
-  console.log(id)
   try {
     const res = await fetch(`http://localhost:3000/api/orders/${id}`, {
       cache: 'no-store',

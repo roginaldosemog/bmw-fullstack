@@ -22,7 +22,7 @@ export default async function OrdersList() {
 
   return (
     <div className="flex flex-col gap-y-2" data-testid="orders-list">
-      {orders.map((order, index) => (
+      {orders?.map((order, index) => (
         <OrdersListItem order={order} key={index} />
       ))}
     </div>
