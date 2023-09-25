@@ -1,4 +1,4 @@
-import Order from '../schema'
+import Order from '../models'
 import connectMongoDB from '../db'
 import { NextResponse } from 'next/server'
 

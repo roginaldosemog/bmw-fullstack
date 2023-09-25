@@ -1,6 +1,6 @@
-import { Car } from '@/lib/types'
+import { CarProps } from '@/types/cars'
 
-export default function CarsListItem({ car }: { car: Car }) {
+export default function CarsListItem({ car }: { car: CarProps }) {
   return (
     <div
       className="h-12 px-6 flex justify-between items-center border-solid border border-blue-700 rounded shadow"
