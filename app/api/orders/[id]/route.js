@@ -1,12 +1,20 @@
-import connectMongoDB from '../../db'
-import Order from '../../schema'
 import { NextResponse } from 'next/server'
+
+import connectMongoDB from '@/app/api/db'
+import Order from '@/app/api/models/Order'
 
 export async function PUT(request, { params }) {
   const { id } = params
-  const { newCar: car, newUser: user } = await request.json()
+  const { customerEmail, carModel, pickDate, returnDate, totalValue } =
+    await request.json()
   await connectMongoDB()
-  await Order.findByIdAndUpdate(id, { car, user })
+  await Order.findByIdAndUpdate(id, {
+    customer_email: customerEmail,
+    carModel,
+    pickDate,
+    returnDate,
+    totalValue,
+  })
   return NextResponse.json({ message: 'Order updated' }, { status: 200 })
 }
 

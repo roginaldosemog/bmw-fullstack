@@ -1,11 +1,19 @@
-import Order from '../models'
-import connectMongoDB from '../db'
 import { NextResponse } from 'next/server'
 
+import connectMongoDB from '@/app/api/db'
+import Order from '@/app/api/models/Order'
+
 export async function POST(request) {
-  const { car, user } = await request.json()
+  const { customerEmail, carModel, pickDate, returnDate, totalValue } =
+    await request.json()
   await connectMongoDB()
-  await Order.create({ car, user })
+  await Order.create({
+    customer_email: customerEmail,
+    carModel,
+    pickDate,
+    returnDate,
+    totalValue,
+  })
   return NextResponse.json({ message: 'Order created' }, { status: 201 })
 }
 
