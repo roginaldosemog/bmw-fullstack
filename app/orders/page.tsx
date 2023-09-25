@@ -1,11 +1,18 @@
 import Link from 'next/link'
 
 import { getOrders } from '@/utils/orders'
-import { OrdersRequestProps } from '@/types/orders'
+import { Order, OrdersRequestProps } from '@/types/orders'
 import OrdersList from '@/components/OrdersList'
 
 export default async function OrdersPage() {
-  const { orders }: OrdersRequestProps = await getOrders()
+  let orders: Order[] = []
+
+  try {
+    const { orders: fetchedOrders }: OrdersRequestProps = await getOrders()
+    if (fetchedOrders) orders = fetchedOrders
+  } catch (error) {
+    console.error('Error fetching orders:', error)
+  }
 
   return (
     <main className="pt-4" data-testid="orders-page">

@@ -1,11 +1,19 @@
 import Link from 'next/link'
 
 import { getCustomers } from '@/utils/customers'
-import { CustomersRequestProps } from '@/types/customers'
+import { Customer, CustomersRequestProps } from '@/types/customers'
 import CustomersList from '@/components/CustomersList'
 
 export default async function CustomersPage() {
-  const { customers }: CustomersRequestProps = await getCustomers()
+  let customers: Customer[] = []
+
+  try {
+    const { customers: fetchedCustomers }: CustomersRequestProps =
+      await getCustomers()
+    if (fetchedCustomers) customers = fetchedCustomers
+  } catch (error) {
+    console.error('Error fetching customers:', error)
+  }
 
   return (
     <main className="pt-4" data-testid="customers-page">
