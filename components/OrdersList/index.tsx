@@ -1,28 +1,17 @@
-import { Order } from '@/lib/types'
-import OrdersListItem from '../OrdersListItem'
+import { isDataEmpty } from '@/utils/data'
+import { Order } from '@/types/orders'
+import OrdersListItem from '@/components/OrdersListItem'
 
-const getOrders = async () => {
-  try {
-    const res = await fetch('http://localhost:3000/api/orders', {
-      cache: 'no-store',
-    })
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch orders')
-    }
-
-    return res.json()
-  } catch (error) {
-    console.log('Error loading orders: ', error)
-  }
+interface OrdersListProps {
+  orders: Order[]
 }
 
-export default async function OrdersList() {
-  const { orders }: { orders: Order[] } = await getOrders()
+export default function OrdersList({ orders }: OrdersListProps) {
+  if (isDataEmpty(orders)) return <p>No data to display</p>
 
   return (
     <div className="flex flex-col gap-y-2" data-testid="orders-list">
-      {orders?.map((order, index) => (
+      {orders.map((order, index) => (
         <OrdersListItem order={order} key={index} />
       ))}
     </div>

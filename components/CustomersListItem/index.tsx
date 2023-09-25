@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Customer } from '@/types/customers'
 
 interface CustomerItemProps {

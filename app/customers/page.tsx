@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { CustomersRequestProps } from '@/types/customers'
+
 import { getCustomers } from '@/utils/customers'
+import { CustomersRequestProps } from '@/types/customers'
 import CustomersList from '@/components/CustomersList'
 
 export default async function CustomersPage() {
