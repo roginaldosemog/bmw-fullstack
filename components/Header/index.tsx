@@ -14,6 +14,9 @@ export default function Header() {
         <Link className="text-sm font-bold" href={'/'}>
           Cars
         </Link>
+        <Link className="text-sm font-bold" href={'/customers'}>
+          Customers
+        </Link>
         <Link className="text-sm font-bold" href={'/orders'}>
           Orders
         </Link>
