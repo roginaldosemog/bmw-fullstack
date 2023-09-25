@@ -5,7 +5,7 @@ export default async function CarsPage() {
   const cars = await fetchCars()
 
   return (
-    <main className="pt-4" data-testid="carspage">
+    <main className="pt-4" data-testid="cars-page">
       <div className="container">
         <h1 className="pb-2">Available Cars</h1>
         <CarsList cars={cars} />
