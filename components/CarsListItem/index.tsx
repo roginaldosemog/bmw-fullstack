@@ -1,4 +1,4 @@
-import { Car } from '@/libs/types'
+import { Car } from '@/lib/types'
 
 export default function CarsListItem({ car }: { car: Car }) {
   return (

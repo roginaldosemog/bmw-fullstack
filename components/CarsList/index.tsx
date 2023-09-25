@@ -1,4 +1,4 @@
-import { CARS_LIST } from '@/libs/constants'
+import { CARS_LIST } from '@/lib/constants'
 import CarsListItem from '@/components/CarsListItem'
 
 export default function CarsList() {

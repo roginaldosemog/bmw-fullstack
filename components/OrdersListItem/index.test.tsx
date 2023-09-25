@@ -3,7 +3,7 @@
  */
 import { render, screen } from '@testing-library/react'
 import OrdersListItem from '@/components/OrdersListItem'
-import { Order } from '@/libs/types'
+import { Order } from '@/lib/types'
 
 const fakeOrderData: Order = {
   _id: '0',

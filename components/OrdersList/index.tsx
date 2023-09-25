@@ -1,4 +1,4 @@
-import { Order } from '@/libs/types'
+import { Order } from '@/lib/types'
 import OrdersListItem from '../OrdersListItem'
 
 const getOrders = async () => {
@@ -11,7 +11,6 @@ const getOrders = async () => {
       throw new Error('Failed to fetch orders')
     }
 
-    console.log('deu bom')
     return res.json()
   } catch (error) {
     console.log('Error loading orders: ', error)
