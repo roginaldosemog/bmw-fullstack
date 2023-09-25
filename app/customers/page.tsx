@@ -1,6 +1,11 @@
 import Link from 'next/link'
+import { CustomersRequestProps } from '@/types/customers'
+import { getCustomers } from '@/utils/customers'
+import CustomersList from '@/components/CustomersList'
 
-export default function CustomersPage() {
+export default async function CustomersPage() {
+  const { customers }: CustomersRequestProps = await getCustomers()
+
   return (
     <main className="pt-4" data-testid="customers-page">
       <div className="container">
@@ -10,6 +15,7 @@ export default function CustomersPage() {
             Create Customer
           </Link>
         </div>
+        <CustomersList customers={customers} />
       </div>
     </main>
   )
