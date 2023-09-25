@@ -4,7 +4,7 @@ export type Order = {
   carModel: string
   pickDate: string
   returnDate: string
-  totalValue: string
+  totalValue: number
   createdAt: string
   updatedAt: string
 }

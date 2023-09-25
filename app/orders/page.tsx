@@ -12,7 +12,7 @@ export default async function OrdersPage() {
       <div className="container">
         <div className="flex justify-between items-center pb-2">
           <h1>Orders</h1>
-          <Link className="font-bold text-blue-700" href={'customers/create'}>
+          <Link className="font-bold text-blue-700" href={'orders/create'}>
             Create Order
           </Link>
         </div>
