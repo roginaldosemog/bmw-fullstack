@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Customer } from '@/types/customers'
 
@@ -11,9 +11,12 @@ interface OrderFormProps {
 
 export default function OrderForm({ customers }: OrderFormProps) {
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+  const model = searchParams.get('model')
 
   const [customer, setCustomer] = useState('')
-  const [carModel, setCarModel] = useState('')
+  const [carModel, setCarModel] = useState(model || '')
   const [pickDate, setPickDate] = useState('')
   const [returnDate, setReturnDate] = useState('')
   const [totalValue, setTotalValue] = useState('')

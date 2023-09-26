@@ -12,8 +12,9 @@ export default function OrdersListItem(props: OrderItemProps) {
 
   if (!order) return null
 
-  let pickDate = format(new Date(order.pickDate), 'MM/dd/yyyy')
-  let returnDate = format(new Date(order.returnDate), 'MM/dd/yyyy')
+  const dateFormat = 'MM/dd/yyyy'
+  let pickDate = format(new Date(order.pickDate), dateFormat)
+  let returnDate = format(new Date(order.returnDate), dateFormat)
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

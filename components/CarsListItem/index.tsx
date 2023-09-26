@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FaChevronRight } from 'react-icons/fa'
 import { Car } from '@/types/cars'
+import { capitalize } from '@/utils/string'
 
 const transmissionMap: { [key: string]: string } = {
   a: 'Automatic',
@@ -22,22 +23,25 @@ export default function CarsListItem({ car }: { car: Car }) {
       <div className="flex md:flex-row flex-col justify-between gap-x-2">
         <div className="flex justify-between gap-x-2">
           <div className="flex justify-between md:items-end gap-x-12 my-2 md:my-0">
-            <p className="text-xs font-bold text-gray-600">
-              Fuel Type
-              <p className="text-sm md:text-base font-medium capitalize">
+            <div>
+              <p className="text-xs font-bold text-gray-600">Fuel Type</p>
+              <p className="text-sm md:text-base font-medium text-gray-600 capitalize">
                 {car.fuel_type}
               </p>
-            </p>
-            <p className="text-xs font-bold text-gray-600 capitalize">
-              Transmission
-              <p className="text-sm md:text-base font-medium">
+            </div>
+            <div>
+              <p className="text-xs font-bold text-gray-600">Transmission</p>
+              <p className="text-sm md:text-base font-medium text-gray-600">
                 {transmissionMap[car.transmission]}
               </p>
-            </p>
+            </div>
           </div>
         </div>
         <Link
-          href={{ pathname: '/orders/create', query: { model: car.model } }}
+          href={{
+            pathname: '/orders/create',
+            query: { model: capitalize(car.model) },
+          }}
         >
           <div className="flex items-center justify-end md:justify-center bg-blue-700 font-medium text-white px-2 mt-auto h-8 rounded">
             <p className="text-xs pr-2">Create Order</p>
