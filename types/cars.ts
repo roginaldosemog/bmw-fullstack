@@ -1,4 +1,4 @@
-export interface CarProps {
+export interface Car {
   city_mpg: number
   class: string
   combination_mpg: number

@@ -24,16 +24,14 @@ export default async function OrdersPage({
   const { car, user, createdAt } = order
 
   return (
-    <main className="pt-4" data-testid="orderspage">
-      <div className="container">
-        <h1 className="pb-2">{id}</h1>
-        <p className="font-bold">Car</p>
-        <p className="pb-2">{car}</p>
-        <p className="font-bold">User</p>
-        <p className="pb-2">{user}</p>
-        <p className="font-bold">Created at</p>
-        <p className="pb-2">{createdAt}</p>
-      </div>
-    </main>
+    <div className="container" data-testid="orderspage">
+      <h1 className="pb-2">{id}</h1>
+      <p className="font-bold">Car</p>
+      <p className="pb-2">{car}</p>
+      <p className="font-bold">User</p>
+      <p className="pb-2">{user}</p>
+      <p className="font-bold">Created at</p>
+      <p className="pb-2">{createdAt}</p>
+    </div>
   )
 }

@@ -15,16 +15,14 @@ export default async function OrdersPage() {
   }
 
   return (
-    <main className="pt-4" data-testid="orders-page">
-      <div className="container">
-        <div className="flex justify-between items-center pb-2">
-          <h1>Orders</h1>
-          <Link className="font-bold text-blue-700" href={'orders/create'}>
-            Create Order
-          </Link>
-        </div>
-        <OrdersList orders={orders} />
+    <div className="container" data-testid="orders-page">
+      <div className="flex justify-between items-center pb-2">
+        <h1>Orders</h1>
+        <Link className="font-bold text-blue-700" href={'orders/create'}>
+          Create Order
+        </Link>
       </div>
-    </main>
+      <OrdersList orders={orders} />
+    </div>
   )
 }

@@ -14,11 +14,9 @@ export default async function CreateOrder() {
   }
 
   return (
-    <main className="pt-4" data-testid="create-order-page">
-      <div className="container">
-        <h1 className="pb-2">Create Order</h1>
-        <OrderForm customers={customers} />
-      </div>
-    </main>
+    <div className="container" data-testid="create-order-page">
+      <h1 className="pb-2">Create Order</h1>
+      <OrderForm customers={customers} />
+    </div>
   )
 }

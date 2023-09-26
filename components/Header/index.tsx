@@ -6,7 +6,7 @@ import logo from '@/public/images/logo.png'
 export default function Header() {
   return (
     <header
-      className="sticky top-0 z-40 h-14 px-8 w-full flex items-center gap-x-6 shadow-md"
+      className="sticky top-0 z-50 bg-white h-14 px-8 w-full flex items-center gap-x-6 shadow-md"
       data-testid="header"
     >
       <Image className="h-8 w-auto" src={logo} alt="Project logo" />

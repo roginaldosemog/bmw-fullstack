@@ -1,9 +1,9 @@
-import { CarProps } from '@/types/cars'
+import { Car } from '@/types/cars'
 
-export default function CarsListItem({ car }: { car: CarProps }) {
+export default function CarsListItem({ car }: { car: Car }) {
   return (
     <div
-      className="h-12 px-6 flex justify-between items-center border-solid border border-blue-700 rounded shadow"
+      className="py-4 px-6 flex justify-between items-center border-solid border border-blue-700 rounded shadow"
       data-testid="cars-list-item"
     >
       <p className="w-1/3">
