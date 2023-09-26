@@ -1,24 +1,24 @@
 import { NextResponse } from 'next/server'
 
-import connectMongoDB from '@/app/api/db'
+import connectDB from '@/app/api/db'
 import Customer from '@/app/api/models/Customer'
 
 export async function POST(request) {
   const { name, email } = await request.json()
-  await connectMongoDB()
+  await connectDB()
   await Customer.create({ name, email })
   return NextResponse.json({ message: 'Customer created' }, { status: 201 })
 }
 
 export async function GET() {
-  await connectMongoDB()
+  await connectDB()
   const customers = await Customer.find()
   return NextResponse.json({ customers }, { status: 200 })
 }
 
 export async function DELETE(request) {
   try {
-    await connectMongoDB()
+    await connectDB()
     const id = request.nextUrl.searchParams.get('id')
 
     const deletedCustomer = await Customer.findByIdAndDelete(id)
