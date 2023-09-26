@@ -2,7 +2,10 @@ import mongoose, { Schema } from 'mongoose'
 
 const orderSchema = new Schema(
   {
-    customer_email: String,
+    customer_email: {
+      type: Schema.Types.ObjectId,
+      ref: 'Customer',
+    },
     carModel: String,
     pickDate: Date,
     returnDate: Date,

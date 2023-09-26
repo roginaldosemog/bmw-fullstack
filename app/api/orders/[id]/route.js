@@ -18,7 +18,7 @@ export async function PUT(request, { params }) {
   return NextResponse.json({ message: 'Order updated' }, { status: 200 })
 }
 
-export async function GET(request, { params }) {
+export async function GET(_, { params }) {
   const { id } = params
   await connectMongoDB()
   const order = await Order.findOne({ _id: id })

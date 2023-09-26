@@ -11,7 +11,7 @@ export async function PUT(request, { params }) {
   return NextResponse.json({ message: 'Customer updated' }, { status: 200 })
 }
 
-export async function GET(request, { params }) {
+export async function GET(_, { params }) {
   const { id } = params
   await connectMongoDB()
   const customer = await Customer.findOne({ _id: id })

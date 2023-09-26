@@ -8,3 +8,8 @@ db.createUser({
     },
   ],
 })
+
+db.customers.insertOne({
+  name: 'Igor Gomes',
+  email: 'igor.gomes@dummy.mail',
+})
