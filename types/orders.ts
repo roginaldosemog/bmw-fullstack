@@ -1,6 +1,6 @@
 export type Order = {
   _id: string
-  customerEmail: string
+  customer: string
   carModel: string
   pickDate: string
   returnDate: string

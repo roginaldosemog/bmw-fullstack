@@ -5,11 +5,11 @@ import Order from '@/app/api/models/Order'
 
 export async function PUT(request, { params }) {
   const { id } = params
-  const { customerEmail, carModel, pickDate, returnDate, totalValue } =
+  const { customer, carModel, pickDate, returnDate, totalValue } =
     await request.json()
   await connectDB()
   await Order.findByIdAndUpdate(id, {
-    customer_email: customerEmail,
+    customer_email: customer,
     carModel,
     pickDate,
     returnDate,

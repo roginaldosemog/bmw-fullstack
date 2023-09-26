@@ -10,13 +10,13 @@ interface OrderFormProps {
 }
 
 export default function OrderForm({ customers }: OrderFormProps) {
+  const router = useRouter()
+
   const [customer, setCustomer] = useState('')
   const [carModel, setCarModel] = useState('')
   const [pickDate, setPickDate] = useState('')
   const [returnDate, setReturnDate] = useState('')
   const [totalValue, setTotalValue] = useState('')
-
-  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
