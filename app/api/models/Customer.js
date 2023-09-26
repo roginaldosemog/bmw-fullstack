@@ -1,8 +1,14 @@
 import mongoose, { Schema } from 'mongoose'
 
 const customerSchema = new Schema({
-  name: String,
-  email: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
 })
 
 const Customer =
