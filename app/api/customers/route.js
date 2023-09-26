@@ -2,18 +2,19 @@ import { NextResponse } from 'next/server'
 
 import connectDB from '@/app/api/db'
 import Customer from '@/app/api/models/Customer'
+import Order from '@/app/api/models/Order'
 
 export async function POST(request) {
   try {
     const requestData = await request.json()
 
     await connectDB()
-    const createdCustomer = await Customer.create(requestData)
+    await Customer.create(requestData)
 
-    return NextResponse.JSON({ message: 'Customer created' }, { status: 201 })
+    return NextResponse.json({ message: 'Customer created' }, { status: 201 })
   } catch (error) {
     console.error('Error creating customer:', error)
-    return NextResponse.JSON(
+    return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 },
     )
@@ -26,16 +27,16 @@ export async function GET() {
     const customers = await Customer.find()
 
     if (!customers) {
-      return NextResponse.JSON(
+      return NextResponse.json(
         { message: 'No customer found' },
         { status: 404 },
       )
     }
 
-    return NextResponse.JSON({ customer }, { status: 200 })
+    return NextResponse.json({ customers }, { status: 200 })
   } catch (error) {
     console.error('Error getting customers:', error)
-    return NextResponse.JSON(
+    return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 },
     )
@@ -50,18 +51,19 @@ export async function DELETE(request) {
     const deletedCustomer = await Customer.findByIdAndDelete(id)
 
     if (!deletedCustomer) {
-      return NextResponse.JSON(
+      return NextResponse.json(
         { message: 'Customer not found' },
         { status: 404 },
       )
     }
 
-    await Order.deleteMany({ customer: id })
+    const what = await Order.deleteMany({ customer_id: id })
+    console.log(what)
 
     return NextResponse.json({ message: 'Customer deleted' }, { status: 200 })
   } catch (error) {
     console.error('Error deleting customer:', error)
-    return NextResponse.JSON(
+    return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 },
     )

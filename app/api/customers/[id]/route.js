@@ -13,16 +13,16 @@ export async function PUT(request, { params }) {
     const updatedCustomer = await Customer.findByIdAndUpdate(id, requestData)
 
     if (!updatedCustomer) {
-      return NextResponse.JSON(
+      return NextResponse.json(
         { message: 'Customer not found' },
         { status: 404 },
       )
     }
 
-    return NextResponse.JSON({ message: 'Customer updated' }, { status: 200 })
+    return NextResponse.json({ message: 'Customer updated' }, { status: 200 })
   } catch (error) {
     console.error('Error updating customer:', error)
-    return NextResponse.JSON(
+    return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 },
     )
@@ -37,16 +37,16 @@ export async function GET(_, { params }) {
     const customer = await Customer.findOne({ _id: id })
 
     if (!customer) {
-      return NextResponse.JSON(
+      return NextResponse.json(
         { message: 'Customer not found' },
         { status: 404 },
       )
     }
 
-    return NextResponse.JSON({ customer }, { status: 200 })
+    return NextResponse.json({ customer }, { status: 200 })
   } catch (error) {
     console.error('Error getting customer:', error)
-    return NextResponse.JSON(
+    return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 },
     )

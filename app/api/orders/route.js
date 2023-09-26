@@ -4,11 +4,11 @@ import connectDB from '@/app/api/db'
 import Order from '@/app/api/models/Order'
 
 export async function POST(request) {
-  const { customerEmail, carModel, pickDate, returnDate, totalValue } =
+  const { customer, carModel, pickDate, returnDate, totalValue } =
     await request.json()
   await connectDB()
   await Order.create({
-    customer_email: customerEmail,
+    customer_id: customer,
     carModel,
     pickDate,
     returnDate,
