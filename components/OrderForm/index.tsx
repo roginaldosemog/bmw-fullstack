@@ -18,7 +18,9 @@ export default function OrderForm({ customers }: OrderFormProps) {
 
   const router = useRouter()
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     if (!customer || !carModel || !pickDate || !returnDate || !totalValue) {
       alert('All fields are required.')
       return

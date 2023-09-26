@@ -15,8 +15,13 @@ export default function CustomersListItem(props: CustomerItemProps) {
   if (!customer) return null
 
   const router = useRouter()
-  const removeCustomer = async () => {
-    const confirmed = confirm('Are you sure?')
+
+  const removeCustomer = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
+    const confirmed = confirm(
+      'Are you sure? It will delete all orders associated with this costumer!',
+    )
 
     if (confirmed) {
       const res = await fetch(
