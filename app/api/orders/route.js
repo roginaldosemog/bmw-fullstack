@@ -19,8 +19,24 @@ export async function POST(request) {
 
 export async function GET() {
   await connectDB()
-  const orders = await Order.find()
-  return NextResponse.json({ orders })
+  const rawOrders = await Order.find().populate('customer_id')
+
+  const orders = rawOrders.map((order) => ({
+    id: order._id.toString(),
+    customerData: {
+      id: order.customer_id._id.toString(),
+      name: order.customer_id.name,
+      email: order.customer_id.email,
+    },
+    carModel: order.carModel,
+    pickDate: order.pickDate,
+    returnDate: order.returnDate,
+    totalValue: order.totalValue,
+    createdAt: order.createdAt,
+    updatedAt: order.updatedAt,
+  }))
+
+  return NextResponse.json({ orders }, { status: 200 })
 }
 
 export async function DELETE(request) {

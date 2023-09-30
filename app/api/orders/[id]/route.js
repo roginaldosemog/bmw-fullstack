@@ -9,7 +9,7 @@ export async function PUT(request, { params }) {
     await request.json()
   await connectDB()
   await Order.findByIdAndUpdate(id, {
-    customer_email: customer,
+    customer_id: customer,
     carModel,
     pickDate,
     returnDate,
@@ -21,6 +21,10 @@ export async function PUT(request, { params }) {
 export async function GET(_, { params }) {
   const { id } = params
   await connectDB()
-  const order = await Order.findOne({ _id: id })
-  return NextResponse.json({ order }, { status: 200 })
+  const order = await Order.findOne({ _id: id }).populate('customer_id')
+
+  return NextResponse.json(
+    { order: { customer: order.customer_id, ...order } },
+    { status: 200 },
+  )
 }

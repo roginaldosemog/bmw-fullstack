@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { format } from 'date-fns'
 
-import { Order } from '@/types/orders'
+import { RequestedOrder } from '@/types/orders'
 
 interface OrderItemProps {
-  order: Order
+  order: RequestedOrder
 }
 
 export default function OrdersListItem(props: OrderItemProps) {
@@ -21,12 +21,13 @@ export default function OrdersListItem(props: OrderItemProps) {
   })
 
   return (
-    <Link href={`/orders/${order._id}`}>
+    <Link href={`/orders/${order.id}`}>
       <div
         className="flex flex-wrap py-2 px-6 flex justify-between items-center border-solid border border-blue-700 rounded shadow"
         data-testid="order-list-item"
       >
         <p className="basis-full md:basis-1/5">{order.carModel}</p>
+        <p>{order.customerData.name}</p>
         <p>{pickDate}</p>
         <p>{returnDate}</p>
         <p>{USDollar.format(order.totalValue)}</p>
